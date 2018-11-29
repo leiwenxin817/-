@@ -1,0 +1,214 @@
+*{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+	font-size:12px;
+}
+#header{
+	height:102px;
+	background:#0069aa;
+}
+#header_top{
+	width: 1200px;
+	height:34px;
+	line-height: 34px;
+	margin:0 auto;
+	border-bottom: 1px solid #005c9d;
+}
+#sm{
+	color:#95abbb;	
+}
+#register:hover{
+	text-decoration: underline;
+}
+#login:hover{
+	text-decoration: underline;
+}
+#header #one{
+	display:inline-block;
+	list-style:none;
+	float:right;
+	position:relative;
+}
+#header #one>li {
+	float:left;
+	margin:0 5px;
+	font-size:12px;
+	width:85px;
+	text-align: center;
+	position:relative;
+}
+#header #one li a{
+	color:#a5c7d8;
+}
+#header #two{
+	list-style:none;
+	display: none;
+	position:absolute;
+}
+#header #two li{
+	background:white;
+	text-align: center;
+	margin:0;
+	width:85px;
+	height:30px;
+	
+}
+#header #two li:hover{
+	color:blue;
+	background:white;
+}
+#header #two img{
+	display:block;
+	float:left;
+	width:80px;
+	height:80px;
+	margin:5px;
+}
+#header #two .tu{
+	width:200px;
+	height:100px;
+	background:white;
+	position:absolute;
+	left:-115px;
+	
+}
+#header_top a{
+	color:white;
+}
+
+#header-centent{
+	width:1200px;
+	height:68px;
+	margin:0 auto;
+	border-top:1px solid #0772b4;
+	position:relative;
+}
+#logo{
+	display:inline;	height:68px;line-height:68px;
+	}
+#logo a img{
+	height:68px;
+	vertical-align:top;
+	display: inline;
+}
+#atr{
+	display:inline-block;
+	margin-left: 10px;
+	width:170px;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+#atr i{
+	color:white;
+}
+#atr>span{
+	color:#a5c7db;
+	font-size:14px;
+}
+#atr2{
+	font-size:12px;	
+}
+#atr em{
+	font-style:normal;
+}
+#changeatr{
+	display: inline-block;
+	width:74px;
+	height:24px;
+	border:1px solid #79aece;
+	background:#1a78b3;
+	text-align: center;
+
+}
+#changeatr  a{
+	color:#79aece;
+	display:inline-block;
+	font-size: 12px;
+	position:relative;
+}
+#news{
+	display:inline-block;
+	height:25px;
+	line-height:25px;
+	position:absolute;
+	left: 520px;
+	top:10px
+}
+#news span{
+	color:#2babd8;
+	font-size: 14px;
+}
+#news ul{
+	width: 205px;
+	height:25px;
+	display: inline-block;
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+#news ul li{
+	position:absolute;
+	top:10px;
+	left:100px;
+	list-style:none;
+}
+#news ul li a{
+	color:#2babd8;
+}
+#search{
+	float:right;
+	position:absolute;
+	right:25px;
+	top:5px;
+}
+#search dl{
+	position: relative;
+	width:360px;
+	height:36px;
+	margin:15px 0;
+	
+}
+#keyword{
+	width:350px;
+	height:34px;
+	border:1px solid #015c92;
+	background:#015c92;	
+	border-radius: 3px;
+	color:white;
+}
+#btn{
+	position:absolute;
+	right:15px;
+	top:10px;
+	background:0;
+	border:0;
+	color:silver;
+	width:20px;
+	height:20px;
+	outline: 0;
+	cursor:pointer;
+	font-weight: bold;
+}
+#shopcar{
+	display:inline-block;
+	cursor:pointer;
+	position:absolute;
+	right:0;
+	top:20px;
+}
+#shopcar i{
+	font-size:30px;
+	color:white;
+}
+#shopcar span{
+	position:absolute;
+	right:15px;
+	top:0;
+	color:orange;
+	font-weight: bold;
+}
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			#logo{
+				height:260px;
+				background:#f8f8f8;
+			}
+			#logo #box{
+				width:200px;
+				height:200px;
+				margin:0 auto;
+				color:#333;
+				padding:50px;
+			}
+			#logo img{
+				width:100px;
+				height:100px;
+			}
+			#menu{
+				width:500px;
+				height:500px;
+				margin:100px auto;
+			}
+			#menu input{
+				width:488px;
+				height:35px;
+			}
+			#menu span{
+				display: block;
+				font-size:12px;
+				height:30px;
+				color:#aaa;
+			}
+			#menu i{
+				font-style: normal;
+				margin-left: 25px;
+			}
+			#menu span div{
+				display:inline-block;
+				width:10px;
+				height:18px;
+				background:#d0d0d0;
+				margin:0 1px;
+				border-radius: 2px;
+			}
+			#menu #yzm{
+				width:340px;
+			}
+			#menu a{
+				width:142px;
+				height:35px;
+				background:#eee;
+				border: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="logo">
+			<div id="box">
+				<img src="img/footlogo.png">
+				<p> -  欢迎注册   - </p>	
+			</div>
+		</div>
+		<div id="menu">
+			<form action="enter.html">
+				<input type="text" placeholder="用户名">
+				<span id="s1">4-20位字符，可由中文、英文、数字</span>
+				<input type="text" placeholder="邮箱地址">
+				<span id="s2">请输入常用邮箱，可用作登录账户，接受订单通知和找回密码之用</span>	
+				<input type="text" placeholder="设置密码">
+				<span id="s3">请输入常用邮箱，可用作登录账户，接受订单通知和找回密码之用
+					<i>密码强度
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</i>
+				</span>
+				<input type="text" placeholder="确认密码">
+				<span id="s4"></span>
+				<input type="text" placeholder="您的手机号">
+				<span id="s4"></span>
+				<input  id="yzm" type="text" placeholder="验证码">
+				<a>获取验证码</a>
+			</form>
+		</div>
+	</body>
+</html>
