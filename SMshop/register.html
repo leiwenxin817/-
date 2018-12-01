@@ -32,6 +32,33 @@
 				width:488px;
 				height:35px;
 			}
+			#menu #s3{
+				width:320px;
+				height:35px;
+				float:left;
+			}
+			#menu #odiv{	
+				float:right;
+				width:120px;
+				height:30px;
+				font-size:14px;
+				color:#aaa;
+				
+			}
+			#menu #btn{
+				width:142px;
+				height:35px;
+				background:#eee;
+				border:0
+			}
+			#menu .bx{
+				width:15px;
+				height:15px;
+			
+			}
+			#menu .bx a{
+				text-decoration: none;
+			}
 			#menu span{
 				display: block;
 				font-size:12px;
@@ -42,7 +69,7 @@
 				font-style: normal;
 				margin-left: 25px;
 			}
-			#menu span div{
+			#menu #odiv span{
 				display:inline-block;
 				width:10px;
 				height:18px;
@@ -50,14 +77,28 @@
 				margin:0 1px;
 				border-radius: 2px;
 			}
-			#menu #yzm{
+			#menu #pyzm{
 				width:340px;
 			}
-			#menu a{
-				width:142px;
-				height:35px;
-				background:#eee;
-				border: 0;
+			#menu #s6{
+				margin-bottom: 30px;
+				
+			}
+			#menu .ll{
+				display:inline;
+			}
+			#menu .ll a{
+				text-decoration:none;
+			}
+			#menu #sub{
+				display:block;
+				width:220px;
+				height:50px;
+				background:#006aaf;
+				border:0;
+				margin:40px auto 0;
+				color:white;
+				font-weight: bold;
 			}
 		</style>
 	</head>
@@ -69,27 +110,182 @@
 			</div>
 		</div>
 		<div id="menu">
-			<form action="enter.html">
-				<input type="text" placeholder="用户名">
+			<form method="get">
+				<input type="text" placeholder="用户名" id="pname" required>
 				<span id="s1">4-20位字符，可由中文、英文、数字</span>
-				<input type="text" placeholder="邮箱地址">
+				<input type="text" placeholder="邮箱地址" id="pemail" required="">
 				<span id="s2">请输入常用邮箱，可用作登录账户，接受订单通知和找回密码之用</span>	
-				<input type="text" placeholder="设置密码">
-				<span id="s3">请输入常用邮箱，可用作登录账户，接受订单通知和找回密码之用
-					<i>密码强度
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-					</i>
+				<input type="password" placeholder="设置密码" id="pwd" required="">
+				<span id="s3">6-20位字符，可由大小写英文、数字或符号“-”“_”组成
 				</span>
-				<input type="text" placeholder="确认密码">
+				<div id="odiv">
+					密码强度 
+					<span id="r"></span>
+					<span id="z"></span>
+					<span id="q"></span>
+				</div>
+				<input type="password" placeholder="确认密码" id="pwd2" required="">
 				<span id="s4"></span>
-				<input type="text" placeholder="您的手机号">
-				<span id="s4"></span>
-				<input  id="yzm" type="text" placeholder="验证码">
-				<a>获取验证码</a>
+				<input type="text" placeholder="您的手机号" id="phone" required="">
+				<span id="s5"></span>
+				<input type="text" placeholder="验证码" id="pyzm" required>
+				<input type="button" value="获取验证码" id="btn">
+				<span id="s6"></span>
+				<input type="checkbox" name="raad"  class="bx"/ checked="checked"><span class="ll">订阅优惠信息</span><br/>
+				<input type="checkbox" name="raad"  class="bx"/ checked="checked"><span class="ll">我已阅读同意<a href="#">《山姆网站使用条款》</a></span>
+				<input type="button"  value="提交" id="sub">
 			</form>
 		</div>
 	</body>
 </html>
+<script src="js/Mypublic.js"></script>
+<script src="js/jquery-1.11.1.js"></script>
+<script>
+	var falgName=null;
+	pname.onblur=function(){
+		var reg=/^([\u4e00-\u9fa5]|[a-zA-Z0-9]){4,20}$/g;
+		var str=this.value;
+		if(reg.test(str)){
+			 falgName=true;
+			s1.innerHTML="正确"
+		}else{
+			falgName=false;
+			s1.innerHTML="错误"
+		}
+	}
+	
+	var falgEmail=null;
+	pemail.onblur=function(){
+		var reg=/^\w+@\w+(\.\w+)+$/g;
+		var str=this.value;
+		if(reg.test(str)){
+			 falgEmail=true;
+			s2.innerHTML="正确"
+		}else{
+			falgEmail=false;
+			s2.innerHTML="错误"
+		}
+	}
+	
+	var falgpwd=null;
+	pwd.onblur=function(){
+		var reg=/^\w{6,20}$/g;
+		var str=this.value;
+		if(reg.test(str)){
+			 falgpwd=true;
+			s3.innerHTML="正确"
+		}else{
+			falgpwd=false;
+			s3.innerHTML="错误"
+		}
+	}
+	
+	var regNum = /\d+/;//包含数字
+	var regChar = /[!@#$%^&*]+/;//包含特殊字符
+	var regLetter = /[a-z]+/i;//包含字母
+	
+	var _regNum = /^\d+$/;//纯数字
+	var _regChar = /^[!@#$%^&*]+$/;//纯特殊字符
+	var _regLetter = /^[a-z]+$/i;//纯字母 
+	
+	pwd.onkeyup = function(){
+		var str = this.value;
+		//排他思想 先清空所有的背景色
+		r.style.background = "#aaa";
+		z.style.background = "#aaa";
+		q.style.background = "#aaa";
+		if( str.length < 5 ){
+			return;
+		}
+		
+		if( _regNum.test( str ) || _regLetter.test( str ) || _regChar.test( str ) ){
+			r.style.background = "orange";
+		}else if( regNum.test(str)&&regChar.test(str)&&regLetter.test(str) ){
+			q.style.background = "orange";
+		}else{
+			z.style.background = "orange";
+		}
+	}
+	
+	
+	
+	var falgpwd2=null;
+	pwd2.onblur=function(){
+		var str=this.value;
+		var str2=pwd.value;
+		if(str==str2){
+			 falgpwd2=true;
+			s4.innerHTML="正确"
+		}else{
+			falgpwd2=false;
+			s4.innerHTML="与原密码不同"
+		}
+	}
+	
+	var falgPhone=null;
+	phone.onblur=function(){
+		var reg=/^\d{11}$/g;
+		var str=this.value;
+		if(reg.test(str)){
+			 falgPhone=true;
+			s5.innerHTML="正确"
+		}else{
+			falgPhone=false;
+			s5.innerHTML="错误"
+		}
+	}
+	
+	btn.onclick=function(){
+		this.res= yzm();
+		alert(this.res);
+	}.bind(this);
+	
+	var falgyzm=null;
+	pyzm.onblur=function(){
+		var str=pyzm.value;
+		var str2=this.res;
+		//console.log(str)
+		if(str==""){
+			s6.innerHTML="";
+			
+		}else if(str==str2){
+			 falgyzm=true;
+			s6.innerHTML="正确"
+		}else{
+			falgyzm=false;
+			s6.innerHTML="验证码错误"
+		}
+	}.bind(this);
+	
+	
+	sub.onclick=function(){
+
+		if(falgName && falgEmail && falgpwd && falgpwd2 &&  falgPhone &&  falgyzm){	
+		
+		//将数据存进数据库
+			var ajax= new XMLHttpRequest();
+			var data=`uname=${pname.value}&uemail=${pemail.value}&upwd=${pwd.value}&uphone=${phone.value}`;
+			ajax.open("GET","php/register.php?"+data);
+			ajax.send();
+			ajax.onreadystatechange=function(){
+				
+				if(ajax.status==200 && ajax.readyState==4){
+					var res=ajax.responseText;
+				//	alert(res);
+					location.href="php/register.php"
+					if(res==0){
+						alert("该用户名已存在")
+						location.href="register.html";
+					}else if(res==1){
+						alert("恭喜！注册成功 ")
+						location.href="index.html";
+					}else{
+						alert("注册失败")
+					}
+				}
+			}
+		
+				
+		}
+	}
+</script>
