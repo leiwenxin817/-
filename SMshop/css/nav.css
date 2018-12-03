@@ -10,6 +10,7 @@
 #nav{
 	height:40px;
 	background:#004b8d;
+	z-index:999999;	
 }
 #nav ul{
 	width:1200px;
@@ -36,7 +37,7 @@
 	background:#f1f1f1;
 	display:none;
 	position:absolute;
-	z-index:10;
+	z-index:100;
 }
 .nav_two dl dt{
 	border-bottom:1px solid #000;
@@ -46,40 +47,4 @@
 .nav_two dl dd{
 	font-size:14px;
 }
-#autoPlay {
-	width:1500px;
-	height:400px;
-	margin:0 auto;
-	position:relative;
-}
-#autoPlay ul{
-	position:absolute;
-	top:0;
-	left:0;
-}
-#autoPlay ul li{
-	list-style: none;
-	position:absolute;
-	top:0;
-	left:0;
-}
-#autoPlay ol{
-	position:absolute;
-	bottom:5px;
-	left:380px;
-	list-style: none;
-}
-#autoPlay ol li{
-	float:left;
-	width:137px;
-	height:34px;
-	line-height: 34px;
-	background:#fafdfe;
-	margin:0 5px;
-	text-align: center;
-	color:#424547;
-}
-#autoPlay ol li.active{
-	background:#155b97;
-	color:white;
-}
+

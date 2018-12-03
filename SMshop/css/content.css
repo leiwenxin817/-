@@ -2,7 +2,7 @@
  	list-style: none;	
 }
 #content{
-	height:874px;
+	height:900px;
 	background:#f8f8f8;
 }
 #content2{
@@ -52,5 +52,5 @@
 #content2 #mess ul li:hover{
 	background:white;
 	border:1px solid ##000;
-	box-shadow: 1px 1px 1px 1px #e1e1e1,-1 px -1px 1px 1px #e1e1e1;
+	box-shadow: 1px 1px 1px 1px #e1e1e1,-1px -1px 1px 1px #e1e1e1;
 }

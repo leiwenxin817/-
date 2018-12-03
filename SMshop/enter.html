@@ -3,7 +3,116 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			#logo{
+				height:260px;
+				background:#f8f8f8;
+				border-bottom:1px solid #eee;
+			}
+			#logo #box{
+				width:200px;
+				height:200px;
+				margin:0 auto;
+				color:#333;
+				padding:50px;
+				text-align: center;
+			}
+			#logo img{
+				width:100px;
+				height:100px;
+			}
+			#bt h2{
+				font-weight: 100;
+				font-size:20px;
+				line-height:60px;
+				text-align: center;
+			}
+			#menu{
+				width:300px;
+				height:300px;
+				margin:0 auto;
+				text-align: center;
+			}
+			#menu input{
+				width:300px;
+				height:35px;
+			}
+			#menu #enter{
+				margin-top: 20px;
+				width:300px;
+				height:50px;
+				background:#006aaf;
+				border:0;
+				font-size:18px;
+				color:white;
+			}
+			#menu p{
+				width:300px;
+				height:20px;
+				text-align:left;
+				color:#aaa;
+				font-size: 12px;
+			}
+			#menu a {
+				text-decoration: none;
+				display:block;
+				font-size:12px;
+				text-align: left;
+				margin-top: 10px;
+				coloer:#eee;
+			}
+		</style>
 	</head>
 	<body>
+		<div id="logo">
+			<div id="box">
+				<img src="img/footlogo.png">
+				<p> -  登录   - </p>	
+			</div>
+		</div>
+		<div id="bt">
+			<h2>已开通山姆网购账户，请登录<h2>	
+		</div>
+		<div id="menu">
+			<from>
+				<input type="text" placeholder="用户名/邮箱/17位卡号" required="" id="name">
+				<p id="s1"></p>
+				<input type="password" placeholder="密码" id="pwd" required>
+				<p id="s2"></p>
+				<a href="register.html">注册</a>
+				<input type="button" value="登录" id="enter">
+			</from>
+		</div>
 	</body>
 </html>
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/Mypublic.js"></script>
+<script>
+
+	$("#enter").click(function(){
+		$.ajax({
+			type : "get",
+			url : "php/enter.php?"+`pname=${ $("#name").val() }&ppwd=${ $("#pwd").val()}`,
+			//data:{"pname":}
+			success:function(res){
+				console.log(res)
+				if(res==0){
+					$("#s1").html("用户名不存在");
+				}else if(res==2){				
+					$("#s2").html("密码错误");
+				}else{
+					$("#s1").html("正确");
+					alert("欢迎登录山姆商店")
+					location.href="index.html";
+				}
+			}
+		
+		})
+	})
+
+
+</script>
