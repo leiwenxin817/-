@@ -86,12 +86,16 @@
 #content #show #show_foot #money {
   width: 140px;
   float: right;
-  color: #0069aa;
-  font-size: 18px;
+  color: #666;
+  font-size: 12px;
 }
 #content #show #show_foot #money span {
   color: #666;
   font-size: 12px;
+}
+#content #show #show_foot #money #js_price {
+  color: #0069aa;
+  font-size: 18px;
 }
 #content #show #show_foot button {
   width: 120px;

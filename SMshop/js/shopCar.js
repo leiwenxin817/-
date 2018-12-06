@@ -4,9 +4,8 @@ var arr=JSON.parse($str)[0];
 //console.log(arr.src);
 
 var constr="";
-constr=`<div id="show_con">
-			<ul>
-				<li><input type="checkbox"></li>
+constr=`<ul>
+				<li><input type="checkbox" id="qx"></li>
 				<li>商品信息</li>
 				<li>单价（元）</li>
 				<li>数量</li>
@@ -15,7 +14,7 @@ constr=`<div id="show_con">
 			</ul>
 			<ul>
 				<li>
-					<input type="checkbox">
+					<input type="checkbox" id="ck">
 					<img src="${arr.src}">
 				</li>
 				<li>
@@ -23,23 +22,64 @@ constr=`<div id="show_con">
 					 支持7天无理由退货   <br>
 					支持极速达
 				</li>
-				<li>${arr.price}</li>
+				<li id="pri">${arr.price}</li>
 				<li>
 					<div id="footnum">
-						<a href="javaScript:;" id="jian">-</a>
-						<span id="num">${arr.count}</span>
-						<a href="javaScript:;" id="jia">+</a>	
+						<a href="javaScript:;" id="jian" class="updateCount" data-number="-1">-</a>
+						<span id="count">${arr.count}</span>
+						<a href="javaScript:;" id="jia" class="updateCount" data-number="1">+</a>	
 					</div>
 				</li>
-				<li>￥1190.00</li>
-				<li><a href="javaScript:;">删除</a></li>
-			</ul>
-		</div>
-		<div id="show_foot">
-			<a href="javaSctipt:;">批量删除</a>	
-			<button>去结算</button>
-			<div id="money"><span>合计</span><br>￥1190.00<span>(5)件</span></div>
-		</div>`;
-$("#show").html(constr);
+				<li id="num">${arr.price*arr.count}</li>
+				<li><a href="javaScript:;" id="del">删除</a></li>
+			</ul>`;
+		
+$("#show_con").html(constr);
 
 
+//结算功能
+function jiesuan(){
+	var money=0;
+	var count=0;
+	$("#ck:checked").each(function(){
+		//this在指向某个复选框
+		money += Number($(this).parent().parent().find("#num").html());
+		count += parseInt($(this).parent().parent().find("#count").html());
+	})
+	$("#js_price").html(money);
+	$("#js_count").html(count);
+}
+
+//加减操作
+$(".updateCount").click(function(){
+	var sign=$(this).data("number");
+	var count=parseInt($(this).parent().find("#count").html());
+	if(sign== -1 && count==1){
+		return;
+	}
+	
+	arr.count+=Number(sign);
+	localStorage.name=JSON.stringify(arr);
+	$(this).parent().find("#count").html(arr.count);
+	$(this).parent().parent().next().html(arr.count*arr.price)
+	jiesuan();
+})
+
+//删除操作
+$("#del").click(function(){
+	if(confirm("确定要删除吗？")){
+		localStorage.removeItem("name");		
+		$(this).parent().parent().remove();
+	}
+})
+
+
+//全选功能
+$("#qx").click(function(){
+	$("#ck").prop("checked",$(this).prop("checked"));
+	jiesuan();
+})
+
+$("#ck").click(function(){
+	jiesuan();
+})

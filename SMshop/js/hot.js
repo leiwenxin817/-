@@ -6,12 +6,12 @@ $.ajax({
 		var str="";
 		for(var i =0; i<msg.length;i++){
 			str+=`<li>
-								<a href="page.html">
-									<img src="img/${msg[i].src}" alt="" />
-									<p>${msg[i].name}</p>
-									<p id="price">${msg[i].price}</p>
-								</a>
-							</li>`;
+					<a href="page.html?${msg[i].id}">
+						<img src="img/${msg[i].src}" alt="" />
+						<p>${msg[i].name}</p>
+						<p id="price">${msg[i].price}</p>
+					</a>
+				</li>`;
 		}
 		$("#ul2").html(str)
 		
@@ -25,7 +25,7 @@ $.ajax({
 		var str="";
 		for(var i =0; i<msg.length;i++){
 			str+=`<li>
-					<a href="page.html">
+					<a href="page.html?${msg[i].id}">
 						<img src="img/${msg[i].src}" alt="" />
 						<p>${msg[i].name}</p>
 						<p id="price">${msg[i].price}</p>
@@ -45,7 +45,7 @@ $.ajax({
 		var str="";
 		for(var i =0; i<msg.length;i++){
 			str+=`<li>
-					<a href="page.html">
+					<a href="page.html?${msg[i].id}">
 						<img src="img/${msg[i].src}" alt="" />
 						<p>${msg[i].name}</p>
 						<p id="price">${msg[i].price}</p>
@@ -65,7 +65,7 @@ $.ajax({
 		var str="";
 		for(var i =0; i<msg.length;i++){
 			str+=`<li>
-					<a href="page.html">
+					<a href="page.html?${msg[i].id}">
 						<img src="img/${msg[i].src}" alt="" />
 						<p>${msg[i].name}</p>
 						<p id="price">${msg[i].price}</p>

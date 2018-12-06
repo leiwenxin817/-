@@ -53,9 +53,9 @@ $("#content_foot button").on("click",function(){
 	var falg=true;
 	var arr=[];
 	json={
-		"src": "pageImg/1.jpg",
+		"src": $("#content_left ul li img").attr("src"),
 		"price":$("#price").html(),
-		"count":count	
+		"count":Number(count)	
 	}
 	arr.push(json);
 	localStorage.name= JSON.stringify(arr);

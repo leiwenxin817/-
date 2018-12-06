@@ -6,7 +6,7 @@ $.ajax({
 		var str="";
 		for( var i=0; i<arr.length; i++){
 			str+=`<li>
-					<a href="page.html">
+					<a href="page.html?${arr[i].id}">
 						<img src="img/${arr[i].src}" alt="" />
 						<p>${arr[i].name}</p>
 						<p id="price">${arr[i].price}</p>

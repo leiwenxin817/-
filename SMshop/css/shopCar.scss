@@ -103,11 +103,15 @@
            #money{
               width:140px;
               float:right;
-              color:#0069aa;
-              font-size:18px;
+              color:#666;
+               font-size:12px; 
               span{
                   color:#666;
                   font-size:12px; 
+              }
+              #js_price{
+                  color:#0069aa;
+                  font-size:18px;      
               }
            }
            button{
